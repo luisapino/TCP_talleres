@@ -16,7 +16,7 @@ public class Client {
         new Thread(()->{
         while(true){ //evita que se cierre la ejecución
             try {
-                byte[] bf = new byte[500];//desde -127 a 128, el buffer funciona como un recipiente para los bytes que me lleguen
+                byte[] bf = new byte[300];//desde -127 a 128, el buffer funciona como un recipiente para los bytes que me lleguen
                 socket.getInputStream().read(bf);
                 String rec = new String(bf, "UTF-8");
                 System.out.println(rec.trim());
