@@ -50,11 +50,7 @@ public class Sessions implements Runnable{
                     for(int i = 2; i <partes.length; i++){
                         msg = msg+" "+partes[i];
                     }
-
-                    if(!Server.enviarMensaje(msg, tema)){
-                        socket.getOutputStream().write("El mensaje no fue enviado".getBytes());
-                    }
-
+                   Server.enviarMensaje(msg, tema);
                 } catch (Exception e) {
                     e.printStackTrace();
                     socket.getOutputStream().write("Se envia un mensaje escribiendo: send *ingresa el tema y luego ingresa el mensaje".getBytes());
@@ -72,7 +68,7 @@ public class Sessions implements Runnable{
         temaSuscripcion.add(topic);
     }
 
-    //veririfa si está suscrito a un tema
+    //verifica si está suscrito a un tema
     public boolean estaSuscrito(String tipo){
         boolean aux=false;
         for (int i = 0; i< temaSuscripcion.size(); i++){
@@ -82,7 +78,6 @@ public class Sessions implements Runnable{
         }
         return aux;
     }
-
 
     public void mensaje(String msg, String tema){
         try {
